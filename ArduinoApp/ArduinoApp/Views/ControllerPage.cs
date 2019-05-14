@@ -12,14 +12,14 @@ using Xamarin.Forms.Xaml;
 
 namespace ArduinoApp.Views
 {
-  //  [XamlCompilation(XamlCompilationOptions.Compile)] //TODO:
+  //  [XamlCompilation(XamlCompilationOptions.Compile)] 
     public partial class ControlerPage : ContentPage
     {
         private string deviceId;
 
         public ControlerPage(string deviceId)
         {
-            //        InitializeComponent(); //TODO:
+            //        InitializeComponent(); 
 
             var stackLayout = new StackLayout();
 

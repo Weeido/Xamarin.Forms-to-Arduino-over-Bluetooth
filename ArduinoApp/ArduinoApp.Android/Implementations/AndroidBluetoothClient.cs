@@ -49,11 +49,12 @@ namespace ArduinoApp.Droid.Implementations
                 btSocket = bTDevice.CreateRfcommSocketToServiceRecord(myUUID);
                 btSocket.Connect();
                 isConnected = true;
-                Task.Run(async () => await Listen());
+                Task.Run(() => Listen());
             }
             catch
             {
                 btSocket.Close();
+                isConnected = false;
                 return false;
             }
 
@@ -64,6 +65,9 @@ namespace ArduinoApp.Droid.Implementations
         {
             isConnected = false;
             btSocket.Close();
+            outStream = null;
+            inputStream = null;
+            btSocket = null;
 
         }
 
@@ -82,7 +86,7 @@ namespace ArduinoApp.Droid.Implementations
                 deviceIdToBluetoothDevice[currentDeviceAddress] = currentDevice;
             }
 
-            return deviceIdToBluetoothDevice.Keys.ToList();
+            return deviceIdToBluetoothDevice.Keys.ToList(); 
         }
 
         public override string GetDeviceName(string deviceId)
@@ -121,7 +125,7 @@ namespace ArduinoApp.Droid.Implementations
 
         }
 
-        protected override async Task Listen()
+        protected override void Listen()
         {
             while (isConnected)
             {

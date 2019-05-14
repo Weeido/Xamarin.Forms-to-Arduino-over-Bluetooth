@@ -20,9 +20,17 @@ namespace ArduinoApp.Views
             this.Content = stackLayout;
 
             PageHelper.CreateButton("Show Paired Devices", ShowPairedDevices, stackLayout);
-
-
         }
+
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    stackLayout = new StackLayout();
+        //    this.Content = stackLayout;
+
+        //    PageHelper.CreateButton("Show Paired Devices", ShowPairedDevices, stackLayout);
+
+        //}
 
         private void ShowPairedDevices()
         {
