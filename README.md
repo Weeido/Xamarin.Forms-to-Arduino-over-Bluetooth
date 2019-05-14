@@ -20,19 +20,14 @@ As the diagram shows, most of the code is implemented in the shared logic part o
 The project has two main parts which we'll be explained seperatly:
 The first is the BluetoothClient.
 
-# *** Under Construction *** 
-
-
+# --- Under Construction --- 
 
 Basic flow:
  ![](Tutorial_Images/ArduinoApp_Basic_flow.png)
 
-
-
 Bluetooth further explantion:
  ![](Tutorial_Images/ArduinoApp_Bluetooth.png)
 
-
-
 Whole program - send and receive flow example:
  ![](Tutorial_Images/ArduinoApp_Send_Receive_Example.png)
+
