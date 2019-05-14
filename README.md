@@ -11,7 +11,7 @@ Design Notes:
 This code is meant as a bootstrap for fast start up, it is by no means idealy written and is supposed to be edited and changed according to youre project.
 
 The entire project architecture:
-![](Tutorial_Images/ArduinoApp_The_project_with_unimplemented.png)
+ ![](Tutorial_Images/ArduinoApp_The_project_with_unimplemented.png)
 
 Let's go over the diagram.
 The Blue sqaure are the classes implemented in te common logic. The yellow squares are the android parts, and in red the IOS(currently not implemented)
@@ -20,4 +20,19 @@ As the diagram shows, most of the code is implemented in the shared logic part o
 The project has two main parts which we'll be explained seperatly:
 The first is the BluetoothClient.
 
+# *** Under Construction *** 
 
+
+
+Basic flow:
+ ![](Tutorial_Images/ArduinoApp_Basic_flow.png)
+
+
+
+Bluetooth further explantion:
+ ![](Tutorial_Images/ArduinoApp_Bluetooth.png)
+
+
+
+Whole program - send and receive flow example:
+ ![](Tutorial_Images/ArduinoApp_Send_Receive_Example.png)
