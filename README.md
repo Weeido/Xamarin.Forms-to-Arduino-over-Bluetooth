@@ -13,7 +13,11 @@ This code is meant as a bootstrap for fast start up, it is by no means idealy wr
 The entire project architecture:
 ![](Tutorial_Images/ArduinoApp_The_project_with_unimplemented.png)
 
+Let's go over the diagram.
+The Blue sqaure are the classes implemented in te common logic. The yellow squares are the android parts, and in red the IOS(currently not implemented)
+As the diagram shows, most of the code is implemented in the shared logic part of the project(Blue squares). Whereas the android has only the MainActivity(only couple lines of code added to this part of the code), and the AndroidBluetoothClient in which the implementing for the domain specific communication is implemented.
+
 The project has two main parts which we'll be explained seperatly:
-the first is the Blue
+The first is the BluetoothClient.
 
 
