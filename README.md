@@ -38,23 +38,30 @@ In the "Bluetooth part" we have: AndroidBluetoothClient which is a class with An
  ![](Tutorial_Images/ArduinoApp_BT_plain.png.png)
 
 In a nutshell, lets look at the properties and some functions of AndroidBluetoothClient.
+
    deviceIdToBluetoothDevice - a dictionary from string - deviceName to BluetoothDevice which is an Android object. We don't want to                                    Android objects in the common logic, so a dictionary from name to device is reasonable choice.
-   myBluetoothAdapter - this can be thought of as the wrapper for the actual Bluetooth device
-   btSocket - is "the connection itself"
-   inputStream, outputStream - as you can see these are properties of the btSocket(BTW creating separate variables for them is bad                                      practice but it helps explain the code)
-   myUUID - the "mac address" of the device
+
+myBluetoothAdapter - this can be thought of as the wrapper for the actual Bluetooth device
+
+btSocket - is "the connection itself"
+
+inputStream, outputStream - as you can see these are properties of the btSocket(BTW creating separate variables for them is bad                                      practice but it helps explain the code)
+
+myUUID - the "mac address" of the device
    
-   List<string> GetPairedDeviceIds() - this function will initiates the dictionary *with the bond devices* mapping string to                                                      BluetoothDevice
-   Listen() - is a "endless loop function" that basic listens to the inputstream and if something comes up - calls a "common logic                     function" - OnByteReceived((byte)inputByte) -  to raise the event
+List<string> GetPairedDeviceIds() - this function will initiates the dictionary *with the bond devices* mapping string to                                                      BluetoothDevice
+
+Listen() - is a "endless loop function" that basic listens to the inputstream and if something comes up - calls a "common logic                     function" - OnByteReceived((byte)inputByte) -  to raise the event
  
    Connect(string deviceId) - most of the function is self-explanatory, but if you look closely, we use a Task for Listen().
                               the reason to do so is that Listen() is a "endless loop function", and we want it to be. we want to listen 
                               constantly for incoming messages, but we also want the screen to "endlessly listen" to us touching the                                   screen. This is exactly what tasks solve, and the reason for doing so here.
 
 Now lets look at BaseBluetoothClient
-     void OnByteReceived(byte receivedByte) - this function raises the event(reminder: called by Listen())
 
-additional note - OnByteReceived is the reason we couldn't just have an interface and an implementation for the bluetooth client. We                       want a "common logic function" to raise the event, which needs to be implemented.
+void OnByteReceived(byte receivedByte) - this function raises the event(reminder: called by Listen())
+
+*additional note* - OnByteReceived is the reason we couldn't just have an interface and an implementation for the bluetooth client. We                       want a "common logic function" to raise the event, which needs to be implemented.
 
 IBluetoothClient is self explantory from here I hope.
 
