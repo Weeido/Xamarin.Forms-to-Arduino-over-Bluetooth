@@ -23,8 +23,8 @@ The arrows represent hiearchy levels or inheritance.
 As the diagram shows, most of the code is implemented in the shared logic part of the project(Blue squares). Whereas the android has only the MainActivity(only couple lines of code added to this part of the code), and the AndroidBluetoothClient in which the implementing for the domain specific communication is implemented, which is a "Xamariny" implementation.
 
 For simplicity and convenience the explanation of the project will be devided into two parts - the "Bluetooth part" and the "usage/application part".
-In the "Bluetooth part" we have: AndroidBluetoothClient which is a class with Android domain specific implementations for - connect , send message , Listen task for receiving messages. All of those, and some additional bluetooth functionalities are wrapped with the base class BaseBluetoothClient, wrapped by the interface IBluetoothClient(explanation for the necessity of BaseBluetoothClient will be provided later).
 
+# General Usage Overview
 In the "application/usage part" we have two pages - "ConnectionPage" and "ControllerPage".
 The "ConnectionPage" is the first page of the application, allowing you choose  device(from you're paired devices) and you may connect to it, if the connection is succeeded you move on to the ControllerPage.
 In the "ControllerPage" a connection has already been established. Therefore, the app is listening to incoming messages(if a message is received a toast will be shown on the screen) and you may send messages.
@@ -32,7 +32,11 @@ Now have an understanding of the Basic flow:
 
  ![](Tutorial_Images/ArduinoApp_Basic_flow.png)
 
-# the Bluetooth part
+# The Bluetooth Part
+In the "Bluetooth part" we have: AndroidBluetoothClient which is a class with Android domain specific implementations for - connect , send message , Listen task for receiving messages. All of those, and some additional bluetooth functionalities are wrapped with the base class BaseBluetoothClient, wrapped by the interface IBluetoothClient(explanation for the necessity of BaseBluetoothClient will be provided later).
+
+ ![](Tutorial_Images/ArduinoApp_BT_plain.png.png)
+
 In a nutshell, lets look at the properties and some functions of AndroidBluetoothClient.
    deviceIdToBluetoothDevice - a dictionary from string - deviceName to BluetoothDevice which is an Android object. We don't want to                                    Android objects in the common logic, so a dictionary from name to device is reasonable choice.
    myBluetoothAdapter - this can be thought of as the wrapper for the actual Bluetooth device
@@ -53,12 +57,16 @@ Now lets look at BaseBluetoothClient
 additional note - OnByteReceived is the reason we couldn't just have an interface and an implementation for the bluetooth client. We                       want a "common logic function" to raise the event, which needs to be implemented.
 
 IBluetoothClient is self explantory from here I hope.
+
 # The Clever Shtik
-Now that we have all the Bluetooth taken apart and generalized, we are ready to use it. We'll so by using a very fancy shtik, falling under the category of Design Patterns, called "Dependency Injection". In this case it only means that we pass the create the derived object and pass the interface. By doing so, the code stays unnecessary dependent.
-Additional diagrams are supplied for you're convenience. I recommend going over the "Send Receive" Diagram with the code.
+Now that we have all the Bluetooth taken apart and generalized, we are ready to use it. We'll so by using a very fancy shtik, falling under the category of Design Patterns, called "Dependency Injection". In this case it only means that we pass the created derived object(AndroidBluetoothClient created in the MainActivity) and pass the interface(the App construcer gets an IBluetoothClient object). By doing so, the code stays unnecessary dependent of domain specific implementations.
+Additional diagrams are supplied for you're convenience. I recommend going over them slowly with the code.
+
 
 Bluetooth further explanation:
  ![](Tutorial_Images/ArduinoApp_Bluetooth.png)
+
+
 
 Whole program - send and receive flow example:
  ![](Tutorial_Images/ArduinoApp_Send_Receive_Example.png)
