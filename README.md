@@ -7,7 +7,7 @@ This code is meant as a bootstrap for fast start up, it is by no means idealy wr
 The toturial will show and demonstrate the architectural guidelines and provide a fast start up code for the mobile application.
 
 
-Each platform has specific Interfaces and implementations for Bluetooth communication, therefor, in order to achieve flexible and reusable code, a OOP design is mandatory.
+Each platform has specific Interfaces and implementations for Bluetooth communication, therefor, in order to achieve flexible and reusable code, I chose a OOP design.
 
 
 The entire project architecture:
