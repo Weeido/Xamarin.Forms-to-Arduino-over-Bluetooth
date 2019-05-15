@@ -143,7 +143,7 @@ namespace ArduinoApp.Droid.Implementations
 
                 var inputByte = inputStream.ReadByte();// maybe optimize later
                 
-                OnByteReceived((byte)inputByte); // raising te event
+                OnByteReceived((byte)inputByte); 
                 
             }
 
