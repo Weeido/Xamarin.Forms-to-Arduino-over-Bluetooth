@@ -39,9 +39,9 @@ In the "Bluetooth part" we have: AndroidBluetoothClient which is a class with An
 
 In a nutshell, lets look at the properties and some functions of AndroidBluetoothClient.
 
-   deviceIdToBluetoothDevice - a dictionary from string - deviceName to BluetoothDevice which is an Android object. We don't want to                                    Android objects in the common logic, so a dictionary from name to device is reasonable choice.
+   deviceIdToBluetoothDevice - a map from deviceName to BluetoothDevice which is an Android object. We don't want to have                                    Android objects in the common logic, so a map from name to device is a reasonable choice.
 
-myBluetoothAdapter - this can be thought of as the wrapper for the actual Bluetooth device
+myBluetoothAdapter - this can be thought of as the wrapper for the actual Bluetooth hardware
 
 btSocket - is "the connection itself"
 
