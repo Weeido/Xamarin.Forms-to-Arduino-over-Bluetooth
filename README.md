@@ -1,9 +1,10 @@
 # Xamarin.Forms-to-Arduino-over-Bluetooth
-A complete mobile cross-platform xamarin app architecture with basic bluetooth implementations to Arduino Bluetooth communication.
+A complete mobile cross-platform xamarin app architecture with basic bluetooth implementations Bluetooth communication.
 
 
 Notes:
 This code is meant as a bootstrap for fast start up, it is by no means idealy written and is supposed to be edited according to youre specific project.
+I wrote and used this project to communicate with Arduino microcontroller over bluetooth.Since the architecture is generic the code can easily be edited and used for any type bluetooth communication (mobile-mobile, for example).
 The toturial will show and demonstrate the architectural guidelines and provide a fast start up code for the mobile application.
 
 
