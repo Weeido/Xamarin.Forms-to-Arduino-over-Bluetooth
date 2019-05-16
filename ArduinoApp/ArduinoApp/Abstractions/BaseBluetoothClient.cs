@@ -20,7 +20,7 @@ namespace ArduinoApp.Abstractions
 
         public abstract void SendMessage(byte data, string deviceId);
 
-        protected abstract void Listen();
+        protected abstract Task Listen();
 
         //This is the method that raises the event
         protected void OnByteReceived(byte receivedByte)

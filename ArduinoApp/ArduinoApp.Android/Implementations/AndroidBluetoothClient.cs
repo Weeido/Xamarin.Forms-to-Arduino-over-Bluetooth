@@ -49,7 +49,7 @@ namespace ArduinoApp.Droid.Implementations
                 btSocket = bTDevice.CreateRfcommSocketToServiceRecord(myUUID);
                 btSocket.Connect();
                 isConnected = true;
-                Task.Run(() => Listen());
+                Task.Run(async () => await Listen());
             }
             catch
             {
@@ -125,7 +125,7 @@ namespace ArduinoApp.Droid.Implementations
 
         }
 
-        protected override void Listen()
+        protected override async Task Listen()
         {
             while (isConnected)
             {
