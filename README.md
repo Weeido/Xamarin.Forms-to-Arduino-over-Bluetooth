@@ -16,9 +16,9 @@ The entire project architecture:
 
 Let's go over the diagram and I'll explain what we see.
 
-The Blue square are the classes implemented in the common logic. The yellow squares are the android implementation parts, and in red the IOS(currently not implemented).
+The Blue square are the parts of the program which are in the common logic, thus, they don't have or need any domain specefic functionalities. The yellow squares are the Android specefic parts of code, and in red the IOS(currently not implemented).
 On the upper left corner we have the name of the directory.
-The arrows represent hiearchy levels or inheritance.
+The arrows represent hierarchy levels, inheritance or "flow".
 
 As the diagram shows, most of the code is implemented in the shared logic part of the project(Blue squares). Whereas the android has only the MainActivity(only couple lines of code added to this part of the code), and the AndroidBluetoothClient in which the implementing for the domain specific communication is implemented, which is a "Xamariny" implementation.
 
@@ -33,7 +33,7 @@ Now have an understanding of the Basic flow:
  ![](Tutorial_Images/ArduinoApp_Basic_flow.png)
 
 # The Bluetooth Part
-In the "Bluetooth part" we have: AndroidBluetoothClient which is a class with Android domain specific implementations for - connect , send message , Listen task for receiving messages. All of those, and some additional bluetooth functionalities are wrapped with the base class BaseBluetoothClient, wrapped by the interface IBluetoothClient(explanation for the necessity of BaseBluetoothClient will be provided later).
+In the "Bluetooth part" we have: AndroidBluetoothClient which is a class with Android domain specific implementations for - connect , send message , Listen task for receiving messages. All of those, and some additional bluetooth functionalities are derived from the base class BaseBluetoothClient, which includes additional common bluetooth implentations. BaseBluetoothlient inherits from the interface IBluetoothClient(explanation for the necessity of BaseBluetoothClient will be provided later).
 
  ![](Tutorial_Images/ArduinoApp_BT_plain.png.png)
 
